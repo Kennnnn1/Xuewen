@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@drawable/login"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+
+    android:layout_height="match_parent"
+    tools:context=".SignupActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:id="@+id/sign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SignUp"
+            android:layout_marginTop="120dp"
+            android:layout_marginLeft="130dp"
+            android:textSize="40dp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/kkk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sign"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="120dp"
+            android:text="Already have an account?"/>
+
+        <TextView
+            android:id="@+id/llll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sign"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="280dp"
+            android:text="Login"
+            android:textColor="@color/red"
+            android:onClick="logiin"/>
+
+        <TextView
+            android:id="@+id/namee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/llll"
+            android:layout_marginLeft="70dp"
+            android:text="Name"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/tiii"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/namee"
+            android:layout_marginLeft="70dp"
+            android:hint="Name:"
+            android:background="@drawable/corner"/>
+
+        <TextView
+            android:id="@+id/emaill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tiii"
+            android:layout_marginLeft="70dp"
+            android:text="Email"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/emailEdittext"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/emaill"
+            android:layout_marginLeft="70dp"
+            android:hint="email:"
+            android:background="@drawable/corner"/>
+
+        <TextView
+            android:id="@+id/wewewewe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/emailEdittext"
+            android:layout_marginLeft="70dp"
+            android:text="Password"
+            android:layout_marginTop="20dp"/>
+
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/wewewewe"
+            android:layout_marginLeft="70dp"
+            android:hint="Password:"
+            android:inputType="textPassword"
+            android:background="@drawable/corner"/>
+
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/password"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="90dp"
+            android:text="Sign up"
+            android:id="@+id/signupButton"
+            android:backgroundTint="@color/red"/>
+
+
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>
