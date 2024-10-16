@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication; // Replace with your package name
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,45 +27,58 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+        // Initialize FirebaseAuth instance
         mAuth = FirebaseAuth.getInstance();
-        emailEditText = findViewById(R.id.emailEdittext);
-        passwordEditText = findViewById(R.id.password);
-        signupButton = findViewById(R.id.signupButton);
 
+        // Initialize UI elements
+        emailEditText = findViewById(R.id.emailEdittext); // Ensure this matches your XML ID
+        passwordEditText = findViewById(R.id.password);   // Ensure this matches your XML ID
+        signupButton = findViewById(R.id.signupButton);   // Ensure this matches your XML ID
+
+        // Set OnClickListener to the signup button
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createUser();
+                createUser();  // Call the method to create a user
             }
         });
     }
 
     private void createUser() {
-        String email = emailEditText.getText().toString();
-        String password = passwordEditText.getText().toString();
+        String email = emailEditText.getText().toString().trim();  // Ensure trimming of input
+        String password = passwordEditText.getText().toString().trim();
 
+        // Validation for empty fields
         if (TextUtils.isEmpty(email)) {
-            Toast.makeText(getApplicationContext(), "Please enter email", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (TextUtils.isEmpty(password)) {
-            Toast.makeText(getApplicationContext(), "Please enter password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(SignupActivity.this, "Please enter an email", Toast.LENGTH_SHORT).show();
             return;
         }
 
+        if (TextUtils.isEmpty(password)) {
+            Toast.makeText(SignupActivity.this, "Please enter a password", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Validate password length (Firebase requires at least 6 characters)
+        if (password.length() < 6) {
+            Toast.makeText(SignupActivity.this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Create a new user with email and password in Firebase
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Toast.makeText(SignupActivity.this, "Signup successful.",
-                                    Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                            // Sign up success
+                            Toast.makeText(SignupActivity.this, "Signup successful", Toast.LENGTH_SHORT).show();
+                            // Redirect to login activity after successful signup
+                            startActivity(new Intent(SignupActivity.this, LoginActivity.class));
+                            finish(); // Close the current activity
                         } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(SignupActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            // Sign up fails
+                            Toast.makeText(SignupActivity.this, "Authentication failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

@@ -98,15 +98,6 @@
                 android:layout_marginTop="355dp"
                 app:srcCompat="@drawable/badd" />
 
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="match_parent"
-                android:layout_height="107dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="480dp"
-                android:layout_marginEnd="-20dp"
-                app:srcCompat="@drawable/re" />
 
             <ImageButton
                 android:id="@+id/awww"
@@ -192,6 +183,15 @@
 
         </RelativeLayout>
     </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+
+
+
+    </RelativeLayout>
 
 
 
